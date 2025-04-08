@@ -100,7 +100,7 @@ double secante(double x0, double x1, double limite, int* iteracoes) {
 
         if (fabs(f1 - f0) < 1e-14) {
             printf("Divisão por valor muito pequeno evitada.\n");
-            return x1;
+            return NAN;
         }
 
         x2 = x1 - f1 * (x1 - x0) / (f1 - f0);
