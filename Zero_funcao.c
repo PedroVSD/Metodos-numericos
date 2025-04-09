@@ -10,11 +10,19 @@ int main() {
     // --- Parâmetros de entrada ---
     //Letra A
     //double a = 0, b = 1, lim = 1e-10;
+    /*No primiero exemplo há um caso de divergência de valores, pois no método da bisseção e secante, o valor começa a tender muito a zero, e com isso o sistema de "contagem/numeração" do computador entende o denominador da fração como um zero. Com isso temos uma divisão por zero.*/
+
+
+
     //Letra B
     //double a = 0, b = 1, lim = 1e-10;
+
+
+
+
     //Letra C
     double a = 23, b = 26, lim = 1e-10;
-
+    //O mesmo ocorrido na primeira função também acontece na terceira função.
 
     double x0 = 0, x1 = 1;
 
@@ -60,8 +68,9 @@ int main() {
 
 // --- Função alvo ---
 double funcao(double x) {
-    // return pow(x, 5) - 2 * pow(x, 4) - 9 * pow(x, 3) + 22 * pow(x, 2) + 4 * x - 24;
-    // return sqrt(x) - cos(x);
+    //Para selecionar a função, basta retirar o comentário
+    //return pow(x, 5) - 2 * pow(x, 4) - 9 * pow(x, 3) + 22 * pow(x, 2) + 4 * x - 24;
+    //return sqrt(x) - cos(x);
     return (sqrt(x) - 5) * exp(-x);
 }
 
@@ -100,7 +109,7 @@ double secante(double x0, double x1, double limite, int* iteracoes) {
 
         if (fabs(f1 - f0) < 1e-14) {
             printf("Divisão por valor muito pequeno evitada.\n");
-            return NAN;
+            return x1;
         }
 
         x2 = x1 - f1 * (x1 - x0) / (f1 - f0);
